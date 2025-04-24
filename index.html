@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Michał Kowalczyk</h1>
+            <p>Computer science student</p>
+            <p>Email: m.kowalczyk360@gmail.com | Phone: 690 324 107</p>
+        </header>
+        <main>
+            <section>
+                <h2>About Me</h2>
+                <p>Hi, im a third-year computer science student at AGH UST in Kraków. I am passionate about cutting-edge technologies and I am looking for oportunities to learn from professionals.</p>
+            </section>
+            <section>
+                <h2>Experience</h2>
+                <ul>
+                    <li>
+                        <h3>Junior software developer - Atinea</h3>
+                        <p>01.2023 - 11.2023</p>
+                        <p>I was maintaining existing applications</p>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Education</h2>
+                <ul>
+                    <li>
+                        <h3>Bachelore degree - AGH UST in Kraków</h3>
+                        <p>2022 - 2026</p>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Skills</h2>
+                <ul>
+                    <li>C++</li>
+                    <li>JS/TS</li>
+                    <li>Git</li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Michał Kowalczyk. All rights reserved.</p>
+        </footer>
+    </div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section");
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            section.classList.add("hidden"); // Start hidden
+            observer.observe(section);
+        });
+    });
+</script>
+</body>
+</html>
